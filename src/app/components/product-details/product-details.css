@@ -1,0 +1,10 @@
+.card.out-of-stock {
+  background: #fff0f0;
+  border: 2px solid #e53935;
+}
+
+.stock {
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-weight: bold;
+}

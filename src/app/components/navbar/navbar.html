@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand navbar-dark" style="background:#0d2b4e;">
+  
+  <div class="container position-relative">
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <img src="images/PixelShop.png" alt="logo" class="logo-img" />
+      {{ storeName }}
+    </a>
+
+    <ul class="navbar-nav gap-2 nav-center">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/add-product" routerLinkActive="active">Add Product</a>
+      </li>
+    </ul>
+  </div>
+</nav>

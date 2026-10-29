@@ -1,0 +1,38 @@
+<div class="form-box">
+  <h1>Add New Device</h1>
+  <p class="sub">Fill in the details to add a product to the store</p>
+
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <label>Product Name</label>
+    <input name="title" [(ngModel)]="product.title" placeholder="e.g. iPhone 15" required />
+
+    <label>Category</label>
+    <select name="category" [(ngModel)]="product.category">
+      <option value="smartphones">Smartphones</option>
+      <option value="laptops">Laptops</option>
+      <option value="mobile-accessories">Accessories</option>
+    </select>
+
+    <div class="row">
+      <div>
+        <label>Price ($)</label>
+        <input name="price" type="number" [(ngModel)]="product.price" required min="1" />
+      </div>
+      <div>
+        <label>Quantity</label>
+        <input name="quantity" type="number" [(ngModel)]="product.quantity" min="0" />
+      </div>
+    </div>
+
+    <label>Product Image</label>
+<input type="file" accept="image/*" (change)="onFileSelected($event)" />
+
+<img *ngIf="product.image" [src]="product.image" class="preview" alt="preview" />
+
+    <label>Description</label>
+    <textarea name="description" [(ngModel)]="product.description" rows="4" placeholder="Write a short description"></textarea>
+
+    <button type="submit" [disabled]="f.invalid">Save Product</button>
+  </form>
+</div>
+

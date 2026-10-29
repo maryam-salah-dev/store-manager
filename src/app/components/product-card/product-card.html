@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="img-box">
+    <img [src]="product.image" [alt]="product.title" />
+  </div>
+
+  <div class="info">
+    <span class="category">{{ product.category | uppercase }}</span>
+    <h3>{{ product.title | truncate:40 }}</h3>
+    <p class="desc">{{ product.description | truncate:70 }}</p>
+    <p class="price">{{ product.price | currency:'USD' }}</p>
+  </div>
+
+  <div class="actions">
+    <a [routerLink]="['/products', product.id]" class="btn details">Details</a>
+    <button (click)="onDeleteClick()" class="btn delete">Delete</button>
+  </div>
+</div>

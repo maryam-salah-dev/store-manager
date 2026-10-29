@@ -1,0 +1,21 @@
+<div class="text-center text-white p-5 rounded-4 mb-4" style="background:linear-gradient(135deg,#0d2b4e,#1f5fa8);">
+  <h1 class="fw-bold">Our Electronics</h1>
+  <p class="mb-0">Discover the best devices at the best prices</p>
+</div>
+
+<div *ngIf="productService.loading" class="text-center my-5">
+  <div class="spinner-border text-primary"></div>
+  <p class="mt-2">Loading products...</p>
+</div>
+
+<div *ngIf="productService.error" class="alert alert-danger text-center">{{ productService.error }}</div>
+
+<div *ngIf="!productService.loading && !productService.error && productService.products.length === 0" class="alert alert-secondary text-center">
+  No products found
+</div>
+
+<div class="row g-4">
+  <div class="col-12 col-sm-6 col-lg-3" *ngFor="let p of productService.products">
+    <app-product-card [product]="p" (delete)="onDelete($event)"></app-product-card>
+  </div>
+</div>

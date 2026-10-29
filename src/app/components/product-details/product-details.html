@@ -1,0 +1,23 @@
+<button (click)="goBack()" class="back">← Back to products</button>
+
+<div *ngIf="product; else notReady" class="details">
+  <div class="img-box">
+    <img [src]="product.image" [alt]="product.title" />
+  </div>
+
+  <div class="info">
+    <span class="category">{{ product.category | uppercase }}</span>
+    <h1>{{ product.title }}</h1>
+    <p class="price">{{ product.price | currency:'USD' }}</p>
+    <p class="desc">{{ product.description }}</p>
+
+    <p class="stock" [ngStyle]="{ color: product.quantity === 0 ? '#c62828' : '#2e7d32' }">
+      {{ product.quantity === 0 ? 'Out of stock' : 'In stock: ' + product.quantity }}
+    </p>
+  </div>
+</div>
+
+<ng-template #notReady>
+  <p class="msg" *ngIf="productService.loading">Loading...</p>
+  <p class="msg" *ngIf="!productService.loading">Product not found</p>
+</ng-template>

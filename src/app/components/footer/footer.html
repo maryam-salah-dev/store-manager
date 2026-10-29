@@ -1,0 +1,33 @@
+<footer class="bg-brand text-light pt-5 pb-3 mt-5">
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <h5 class="fw-bold">{{ storeName }}</h5>
+        <p class="small opacity-75">Your one stop for the latest electronics at the best prices.</p>
+      </div>
+
+      <div class="col-md-4">
+        <h6 class="fw-bold">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a class="text-light text-decoration-none" routerLink="/">Home</a></li>
+          <li><a class="text-light text-decoration-none" routerLink="/products">Products</a></li>
+          <li><a class="text-light text-decoration-none" routerLink="/add-product">Add Product</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <h6 class="fw-bold">Contact Us</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2">📞 {{ contact.phone }}</li>
+          <li class="mb-2">✉️ {{ contact.email }}</li>
+          <li class="mb-2">📍 {{ contact.address }}</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <hr class="border-light opacity-25 mt-4" />
+    <p class="text-center small mb-0 opacity-75">© {{ year }} {{ storeName }}. All rights reserved.</p>
+  </div>
+</footer>

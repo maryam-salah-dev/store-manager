@@ -1,0 +1,44 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="badge">NEW ARRIVALS 2026</span>
+    <h1>{{ slogan }}</h1>
+    <p>{{ subtitle }}</p>
+    <div class="hero-buttons">
+      <a routerLink="/products" class="btn btn-primary">Shop Now</a>
+      <a routerLink="/add-product" class="btn btn-outline">Add Product</a>
+    </div>
+  </div>
+</section>
+
+<!-- Perks -->
+<section class="perks">
+  <div class="perk" *ngFor="let p of perks">
+    <h4>{{ p.title }}</h4>
+    <p>{{ p.text }}</p>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="section">
+  <h2 class="section-title">Shop by Category</h2>
+  <p class="section-sub">Find exactly what you are looking for</p>
+
+  <div class="categories">
+    <a routerLink="/products" class="category" *ngFor="let c of categories">
+      <img [src]="c.image" [alt]="c.title" />
+      <div class="category-info">
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.text }}</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Call to action -->
+<section class="cta">
+  <h2>Ready to upgrade your tech?</h2>
+  <p>Join thousands of happy customers at {{ storeName }}.</p>
+  <a routerLink="/products" class="btn btn-primary">Browse All Products</a>
+</section>
