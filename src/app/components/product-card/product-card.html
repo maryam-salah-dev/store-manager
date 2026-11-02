@@ -1,17 +1,18 @@
-<div class="card">
-  <div class="img-box">
-    <img [src]="product.image" [alt]="product.title" />
+<div class="card h-100 shadow-sm product-card" [ngClass]="{ 'border-danger border-2': product.quantity === 0 }">
+  <div class="img-box"><img [src]="product.image" [alt]="product.title" /></div>
+
+  <div class="card-body">
+    <span class="badge bg-primary mb-2">{{ product.category | uppercase }}</span>
+    <h5 class="card-title">{{ product.title | truncate:40 }}</h5>
+    <p class="text-muted small">{{ product.description | truncate:70 }}</p>
+    <p class="fs-4 fw-bold mb-1">{{ product.price | currency:'USD' }}</p>
+    <p class="fw-bold small mb-0" [ngStyle]="{ color: product.quantity === 0 ? 'red' : 'green' }">
+      Stock: {{ product.quantity }}
+    </p>
   </div>
 
-  <div class="info">
-    <span class="category">{{ product.category | uppercase }}</span>
-    <h3>{{ product.title | truncate:40 }}</h3>
-    <p class="desc">{{ product.description | truncate:70 }}</p>
-    <p class="price">{{ product.price | currency:'USD' }}</p>
-  </div>
-
-  <div class="actions">
-    <a [routerLink]="['/products', product.id]" class="btn details">Details</a>
-    <button (click)="onDeleteClick()" class="btn delete">Delete</button>
+  <div class="card-footer bg-white border-0 pb-3 d-flex gap-2">
+    <a [routerLink]="['/products', product.id]" class="btn btn-warning flex-fill fw-bold">Details</a>
+    <button *ngIf="product.isMine" (click)="onDelete()" class="btn btn-outline-danger flex-fill fw-bold">Delete</button>
   </div>
 </div>

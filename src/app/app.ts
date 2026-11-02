@@ -1,11 +1,14 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { ProductService } from './services/product';
 
 @Component({
   selector: 'app-root',
   standalone: false,
-  styleUrl: './app.css',
   templateUrl: './app.html',
+  styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('store-manager');
+  constructor(private productService: ProductService) {
+    this.productService.getProducts();
+  }
 }
